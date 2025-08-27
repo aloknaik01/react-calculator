@@ -1,46 +1,137 @@
-.app {
+/* General Layout */
+body {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   height: 100vh;
-  background: linear-gradient(135deg, #4a90e2, #9013fe);
-  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #2b5876, #4e4376);
+  font-family: "Poppins", sans-serif;
+  margin: 0;
 }
 
 .calculator {
-  background: #f9f9f9;
-  padding: 20px;
-  border-radius: 20px;
-  width: 300px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  width: 100%;
+  max-width: 400px;
+  background: #1e1e2f;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
+/* Display */
 .display {
-  background: black;
-  color: white;
   padding: 20px;
-  border-radius: 10px;
+  background: #2d2d44;
   text-align: right;
-  font-size: 24px;
-  margin-bottom: 15px;
+  color: #fff;
 }
 
+.input {
+  font-size: 1.5rem;
+  opacity: 0.8;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.result {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+/* Buttons Grid */
 .buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
+  padding: 15px;
 }
 
 button {
-  padding: 15px;
-  font-size: 18px;
+  padding: 20px;
+  font-size: 1.2rem;
   border: none;
-  border-radius: 8px;
-  background: #ddd;
+  border-radius: 12px;
+  background: #3a3a55;
+  color: white;
   cursor: pointer;
-  transition: 0.2s;
+  transition: all 0.2s ease-in-out;
 }
 
+/* Hover and Active Effects */
 button:hover {
-  background: #bbb;
+  background: #5a5a80;
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+/* Special Buttons */
+.equal {
+  background: #ff7b54;
+  grid-column: span 2;
+}
+
+.equal:hover {
+  background: #ff9f7b;
+}
+
+.clear {
+  background: #e63946;
+}
+
+.clear:hover {
+  background: #ff4d5c;
+}
+
+.back {
+  background: #457b9d;
+}
+
+.back:hover {
+  background: #5fa8d3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .calculator {
+    max-width: 90%;
+  }
+
+  button {
+    padding: 15px;
+    font-size: 1rem;
+  }
+
+  .input {
+    font-size: 1.2rem;
+  }
+
+  .result {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .buttons {
+    gap: 6px;
+  }
+
+  button {
+    padding: 12px;
+    font-size: 0.9rem;
+    border-radius: 8px;
+  }
+
+  .input {
+    font-size: 1rem;
+  }
+
+  .result {
+    font-size: 1.3rem;
+  }
 }
